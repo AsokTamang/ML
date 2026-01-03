@@ -45,10 +45,33 @@ class Employee:
 e=Employee(1,'asok')
 print(e.displaydata())
 del e.id  #here if we are deleting the id
-try:
- print(e.displaydata())  #then we cannot display the data
-except ValueError as VE: print(VE)
 
+
+
+class Animal:
+    def __int__(self,habitat):
+        self.habitat=habitat
+    def sound(self):
+        print('some sound')
+class Dog(Animal):
+    def __init__(self):
+     super().__init__('house')
+    def sound(self):
+        print('dog sound')
+
+class teacher:
+    def __init__(self,name):
+        self.name=name
+        print(self.name)
+class youtuber:
+    def __init__(self, name):
+        self.name = name
+        print(self.name)
+class student(teacher,youtuber):  #here student is the child class
+    def __init__(self,name):
+        super().__init__(name)
+
+s=student('Asok')
 
 
 
