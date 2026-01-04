@@ -72,6 +72,10 @@ sentence = "The Himalayas are one of the youngest mountain ranges on the planet.
 print(' '.join(sentence.split(' ')[0:2]))  #first we are splitting the given string at space then we are using slice method and join method
 #inorder to join the sentence
 print(' '.join(sentence.split(' ')[-4:-6:-1][::-1]))
+first = ' '.join(sentence.split(' ')[:2])
+second = ' '.join(sentence.split(' ')[-1:-4:-1][::-1])
+print(f'{first} {second}')
+
 
 
 
