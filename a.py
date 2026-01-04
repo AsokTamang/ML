@@ -77,12 +77,26 @@ second = ' '.join(sentence.split(' ')[-1:-4:-1][::-1])
 print(f'{first} {second}')
 
 
-expenses = [1500,2500,2000,6000]
-for i,expense in enumerate(expenses):
-    print(f'month {i+1}, expense:{expense}')
+monthly_sales=[42,38,40,33,45]
+months = ['january','february','march','april','may']
+for month,sale in zip(months,monthly_sales):
+    print(f'{month}:{sale}')
 
 
+for i,sale in enumerate(monthly_sales):
+    if i % 2 == 0:
+        continue
+    print(sale)  #printing the sale which is at odd index only
 
+products = ['iphone','ipad','macbook']
+regions = ['USA','China','India']
+revenue = [20,23,45,18,17,12,12,9,5]
+
+i = 0
+for product in products:
+    for region in regions:
+        print(f'Revenue of product {product} in region {region} is {revenue[i]} ')
+        i+=1
 
 
 
