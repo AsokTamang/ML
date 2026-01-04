@@ -59,22 +59,9 @@ class Dog(Animal):
     def sound(self):
         print('dog sound')
 
-class teacher:
-    def __init__(self,name):
-        self.name=name
-        print(self.name)
-class youtuber:
-    def __init__(self, name):
-        self.name = name
-        print(self.name)
-class student(teacher,youtuber):  #here student is the child class
-    def __init__(self,name):
-        super().__init__(name)
 
-s=student('Asok')
-
-
-
+skills = 'javascript,python,datascientist,AIEngineer'
+print(skills.split(',',maxsplit=2))
 
 
 
