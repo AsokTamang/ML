@@ -10,5 +10,14 @@ with open("C:/Users/ashok/OneDrive/Desktop/change.txt",'r') as f:
     for line in lines:
         line.strip()  #removing empty space from the beginning and the end of the line
         name,id,score = line.split('\t')
-        data[name] = data.get(name,0) + int(score)  #here we are assuming the 0 as the default score
-    print(data)
+        if name in data:
+            data[name].append(int(score))
+        else:
+            data[name]=[int(score)]
+    #calculating the highest score,lowest score and average score which helps to determing the best players, average players and worst players
+    for k,v in data.items():
+        highest = max(v)
+        lowest = min(v)
+        avg=sum(v)/len(v)
+        print(f'{k}==>highest score:{highest},lowest score:{lowest},average score:{avg}')
+
