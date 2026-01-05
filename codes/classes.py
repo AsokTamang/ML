@@ -34,5 +34,3 @@ print(lebron.calculate_avg())
 print(lebron.calculate_avg())
 print(lebron<curry)
 
-
-
