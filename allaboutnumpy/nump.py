@@ -58,3 +58,22 @@ data = np.array([20,30,40,60,70])
 print(data.max())
 index = np.argmax(data)  #here np.argmax gives us the index of the maximum value in a given matrix
 print(index)
+
+
+transactions =np.array([
+    ['101', 'Mohan', '250.5', '2023-08-01'],
+    ['102', 'Sita', '120.0', '2023-08-02'],
+    ['103', 'Ramesh', '560.75', '2023-08-03'],
+    ['104', 'Geeta', '320.0', '2023-08-04'],
+    ['105', 'Amit', '450.25', '2023-08-05'],
+    ['106', 'Neha', '180.0', '2023-08-06'],
+    ['107', 'Raj', '600.0', '2023-08-07'],
+    ['108', 'Priya', '220.5', '2023-08-08'],
+    ['109', 'Anil', '350.0', '2023-08-09'],
+    ['110', 'Rita', '400.75', '2023-08-10']
+])
+
+index = (np.argmax(transactions[:,2]))  #here we are selecting the transaction column of every rows inorder to get index
+
+print(transactions[index][1])  #printing the name who made the highest transaction from the given data
+print(transactions[:,2].astype(float).max())  #here we must convert the type to float initially inorder to get the max value from given list of data
