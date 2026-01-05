@@ -12,3 +12,4 @@ def findkv(**kwargs):
     for key,value in kwargs.items():
         print(f' {key} : {value} ')
 (findkv(name='Asok',Age='24'))
+
