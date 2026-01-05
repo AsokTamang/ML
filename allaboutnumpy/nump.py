@@ -49,3 +49,12 @@ print(horizontal)
 
 vertical = np.vstack((q1,q2))    #this code combines the two matrices vertically
 print(vertical)
+#vertical -> columns
+#horizontal -> rows
+
+print(np.hsplit(horizontal,[2])) #splitting the combined matrix horizontally from index 2
+
+data = np.array([20,30,40,60,70])
+print(data.max())
+index = np.argmax(data)  #here np.argmax gives us the index of the maximum value in a given matrix
+print(index)
