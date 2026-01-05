@@ -31,3 +31,15 @@ print(rev2.sum(axis=1))  #here axis = 1 gives us the sum of the numbers in a mat
 print(rev2.itemsize)
 
 #here .itemsize gives us the amount of byte that each item or number in rev2 occupies
+
+q1  = np.array([ [ 4  , 9 ,  1 ],
+[ 7 , 6  , 2 ]])
+q2  =np.array([ [ 8 , 3 , 5 ],
+[ 11 , 2  , 6 ]])
+print(np.cross(q1,q2))
+
+
+#the first index represents the row and second index represents the column
+print(q1[-1,0:2])  #here we are using slicing method on the very last row of a matrix q1
+print(q1[0,:])  #here we are printing every column of only first row
+print(q1[1:,:])  #here we are printing only  second row but its every column
