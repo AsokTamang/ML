@@ -33,5 +33,6 @@ print(df[['name','contract']])  # here we are calculating how many years the sta
 df['number_of_years'] = df['join_date'].dt.year.apply(lambda x: 2026-x) #here first of all we are extracting the year from the join_date column then we are
 #using .apply method inorder to calculate the number of years of employee in the company
 maximum_years=df['number_of_years'].max()
-df['most_experienced']=df[df['number_of_years']==maximum_years]['name']
+most_experienced=df[df['number_of_years']==maximum_years]
+print(most_experienced[['name','contract']])
 
