@@ -40,5 +40,21 @@ employee_df = pd.DataFrame({
 'JoiningYear': np.random.randint(2015, 2024, 15)
 })
 
-df_main = pd.concat([sales_df,employee_df],keys=['sales_df','employee_df'],axis=1)  #here we are merging the salesdf and employeedf using .concat method and axis helps to concat based on the direction or axis , either vertical or horizontal
-print(df_main)
+df_main = pd.concat([sales_df,employee_df],keys=['sales_df','employee_df'],axis=1,ignore_index=True)  #here we are merging the salesdf and employeedf using .concat method and axis helps to concat based on the direction or axis , either vertical or horizontal
+#df_submain = pd.merge(sales_df,employee_df,how='outer') #inorder for the merge to be occured we must have atleast one common column data
+
+first = pd.DataFrame({
+'EmployeeID': [101, 102, 103, 104, 105],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Department': ['IT', 'HR', 'Finance', 'IT', 'Marketing'],
+    'Salary': [70000, 60000, 65000, 72000, 58000]
+})
+second = pd.DataFrame({
+    'SaleID': [1, 2, 3, 4, 5],
+    'EmployeeID': [101, 102, 101, 104, 106],
+    'Product': ['Laptop', 'Printer', 'Monitor', 'Keyboard', 'Mouse'],
+    'Quantity': [2, 1, 3, 5, 10],
+    'Revenue': [2400, 300, 900, 250, 200]
+})
+last = pd.merge(first,second,on="EmployeeID",how='inner') #here we are merging the two dataframes using merge method of pd on the common column employeeID using innerjoin method
+print(last)
