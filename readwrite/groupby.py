@@ -6,3 +6,4 @@ print(df.groupby('ProductCategory').agg(
 # where we are grouping the data based on unique ProductCategory, and calculating the total price based on the sum of prices
 grouped = df.groupby('ProductCategory')
 print(grouped['Price'].sum())  # here we are doing the same thing which is getting the total sum of the items based on category but we are not assigning the new column in the dataframe
+print('The total number of items in the clothing category is:', grouped.get_group('Clothing').Quantity.sum())  #here we are retrieving the subdata of the grouped using .get_group() method
