@@ -64,3 +64,21 @@ print(df_bookings[df_bookings.revenue_realized>higher_limit])  #observing the da
 print(df_rooms.head(5))
 #df_bookings=df_bookings[df_bookings.revenue_realized<higher_limit]  #here we are changing the original dataframe inplace by removing all the rows whose  revenue realized value is greater than higher_limit
 #df_bookings.revenue_realized.shape
+
+
+#checking the outliers
+
+df_bookings['ratings_given'].describe()
+average = df_bookings['ratings_given'].mean()
+standard_deviation = df_bookings['ratings_given'].std()
+higher_limit = average + 3 * standard_deviation
+lower_limit1 = average - 3 * standard_deviation
+print(df_bookings[df_bookings['ratings_given']>higher_limit])
+print(df_bookings[df_bookings['ratings_given']<lower_limit])
+print(df_bookings.isnull().sum())   #then this calculates the sum of all the rows in specific columns whose value is null
+
+#cleaning the null values
+df_agg_bookings.isnull().sum()  #here this calculate the number of null values in each rows of each columns
+mean = df_agg_bookings['capacity'].mean()
+df_agg_bookings['capacity'].fillna(mean,inplace=True) #cleaning the data of capacity by replacing the null values with mean value
+df_agg_bookings['capacity'].isnull().sum()
