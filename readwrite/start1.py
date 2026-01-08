@@ -35,9 +35,20 @@ print(avg,std)
 limit=avg + 3*std
 
 #removing the outliers
-df_bookings= df_bookings[df_bookings['revenue_generated']<=limit]     #here we are removing the df data whose revenue_generated column data has value more than the limit value,
+#df_bookings= df_bookings[df_bookings['revenue_generated']<=limit]     #here we are removing the df data whose revenue_generated column data has value more than the limit value,
 df_bookings['revenue_generated'].max()
 print(df_bookings)
 #bookings
 #checking if any revenue_generated is lesser than 0
 print(df_bookings[df_bookings['revenue_generated']<0])
+
+
+#cleaning the revenue_realized column
+df_bookings.revenue_realized.describe()
+av,std2=df_bookings.revenue_realized.mean(),df_bookings.revenue_realized.std()
+print(av,std2)
+higher_limit = av + 3*std2
+lower_limit = av - 3*std2   #here this one is the lower limit that the revenue_realized must be within
+print(df_bookings[df_bookings.revenue_realized>higher_limit])  #here we are checking the datas where the revenue_realized is greater than the higher_limit
+df_bookings=df_bookings[df_bookings.revenue_realized<higher_limit]  #here we are changing the original dataframe inplace by removing all the rows whose  revenue realized value is greater than higher_limit
+print(df_bookings.revenue_realized.shape)
