@@ -39,4 +39,5 @@ df_bookings= df_bookings[df_bookings['revenue_generated']<=limit]     #here we a
 df_bookings['revenue_generated'].max()
 print(df_bookings)
 #bookings
-
+#checking if any revenue_generated is lesser than 0
+print(df_bookings[df_bookings['revenue_generated']<0])
