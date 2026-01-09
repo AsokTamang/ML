@@ -97,6 +97,7 @@ df=pd.merge(df_agg_bookings,df_rooms,left_on='room_category',right_on='room_id')
 a=df.groupby('room_class')['occ_pct']
 for k,v in a:
     print(k,v)
+df.drop('room_category',axis = 1,inplace = True)  #here we are deleting the column called room_category but we must use inplace for the effect to take place in current dataframe
 
 #per city
 df_new = pd.merge(df,df_hotels,on="property_id")
