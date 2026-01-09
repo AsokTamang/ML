@@ -91,3 +91,9 @@ df_agg_bookings['occupancy_percentage']=df_agg_bookings['occupancy_percentage'].
 print(df_agg_bookings.head(3))
 
 print(df_agg_bookings[df_agg_bookings['successful_bookings'] > df_agg_bookings['capacity']])
+
+df_agg_bookings['occ_pct'] = df_agg_bookings.apply(lambda row: row['successful_bookings']/row['capacity'], axis=1)
+df=pd.merge(df_agg_bookings,df_rooms,left_on='room_category',right_on='room_id')   #here we are merging two dataframes having two different column names having same row values
+a=df.groupby('room_class')['occ_pct']
+for k,v in a:
+    print(k,v)
