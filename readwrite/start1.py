@@ -140,3 +140,7 @@ df_hotels.head(5)
 df_hotel_bookings=pd.merge(df_hotels,df_bookings,on="property_id")
 df_hotel_bookings.groupby('property_name')['revenue_realized'].sum().sort_values(ascending=False)
 
+#Print average rating per city
+# write your code here
+df_hotel_bookings.head(5)
+df_hotel_bookings.groupby('city')['ratings_given'].mean()
