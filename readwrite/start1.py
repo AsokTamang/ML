@@ -134,3 +134,9 @@ df.head(2)
 df_bookings['check_in_date']=pd.to_datetime(df_bookings['check_in_date'],dayfirst=True)
 dff=pd.merge(df_bookings,df_dates,left_on="check_in_date",right_on="date")
 dff.groupby('mmm yy')['revenue_realized'].sum()
+
+#revenue realized per hotel type
+df_hotels.head(5)
+df_hotel_bookings=pd.merge(df_hotels,df_bookings,on="property_id")
+df_hotel_bookings.groupby('property_name')['revenue_realized'].sum().sort_values(ascending=False)
+
