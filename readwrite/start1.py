@@ -144,3 +144,9 @@ df_hotel_bookings.groupby('property_name')['revenue_realized'].sum().sort_values
 # write your code here
 df_hotel_bookings.head(5)
 df_hotel_bookings.groupby('city')['ratings_given'].mean()
+
+
+#pie chart of revenue realized per booking platform
+df_hotel_bookings.head(5)
+df_hotel_bookings.groupby('booking_platform')['revenue_realized'].sum().plot(kind = 'pie',explode=[0.1,0,0,0,0,0,0],autopct='%1.2f%%',shadow=True)
+
