@@ -128,3 +128,9 @@ df_bookings.head()
 df_neww=pd.merge(df_hotels,df_bookings,on="property_id")
 df_neww.head(3)
 df_neww.groupby('city')['revenue_realized'].sum()  #total revenue realized per city
+
+#revenue realized per month
+df.head(2)
+df_bookings['check_in_date']=pd.to_datetime(df_bookings['check_in_date'],dayfirst=True)
+dff=pd.merge(df_bookings,df_dates,left_on="check_in_date",right_on="date")
+dff.groupby('mmm yy')['revenue_realized'].sum()
