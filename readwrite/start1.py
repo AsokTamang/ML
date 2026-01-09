@@ -84,6 +84,10 @@ df_agg_bookings['capacity'].fillna(mean,inplace=True) #cleaning the data of capa
 df_agg_bookings['capacity'].isnull().sum()
 
 
-# write your code here
+# Data transformation
+df_agg_bookings.head(3)
+df_agg_bookings['occupancy_percentage'] = df_agg_bookings['successful_bookings'] / df_agg_bookings['capacity']
+df_agg_bookings['occupancy_percentage']=df_agg_bookings['occupancy_percentage'].apply(lambda x:round(x*100,2))   #here we are multiplying the actual ration by 100 and rounding off by 2
+print(df_agg_bookings.head(3))
 
 print(df_agg_bookings[df_agg_bookings['successful_bookings'] > df_agg_bookings['capacity']])
