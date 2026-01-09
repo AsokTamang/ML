@@ -1,7 +1,9 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 df_agg_bookings = pd.read_csv('C:/Users/ashok/OneDrive/Desktop/fact_aggregated_bookings.csv')
 df_bookings = pd.read_csv("C:/Users/ashok/OneDrive/Desktop/fact_bookings.csv")
-df_date=pd.read_csv("C:/Users/ashok/OneDrive/Desktop/dim_date.csv")
+df_dates=pd.read_csv("C:/Users/ashok/OneDrive/Desktop/dim_date.csv")
 df_hotels=pd.read_csv("C:/Users/ashok/OneDrive/Desktop/dim_hotels.csv")
 df_rooms=pd.read_csv("C:/Users/ashok/OneDrive/Desktop/dim_rooms.csv")
 maximum = df_agg_bookings.capacity.max()
@@ -106,3 +108,14 @@ b=df_new.groupby('city')['occ_pct']
 for k,v in b:
     print(k)
     print(v)
+
+#occupancy percentage for every cities in the month of june
+
+df = pd.merge(df,df_dates,left_on='check_in_date',right_on='date')
+df.drop(columns='date',inplace=True)
+df=pd.merge(df,df_hotels,on="property_id")
+print(df.columns)
+print(df['mmm yy'].unique())
+df_june_22=df[df['mmm yy']=="22-Jun"]['city']
+print(df.groupby(df_june_22)['occ_pct'].mean().round(2).plot(kind="pie",explode=[0.2,0,0,0],autopct="%1.2f%%",shadow=True))  #so the occupancy percentage in the month of june for all the cities are as follows:
+plt.show()
